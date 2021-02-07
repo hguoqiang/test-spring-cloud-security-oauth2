@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <properties resource="mybatis-generator/generatorConfig.properties" url=""/>
+
+    <classPathEntry location="D:/dev/maven/Repository/mysql/mysql-connector-java/5.1.47/mysql-connector-java-5.1.47.jar"/>
+
+    <context id="MysqlTables" targetRuntime="MyBatis3">
+
+        <!-- 插件 -->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+
+        <commentGenerator>
+
+            <property name="suppressDate" value="false" />
+        </commentGenerator>
+
+        <!-- 注释 -->
+       <!-- <commentGenerator type="com.kaffatech.mocha.generator.mybatis.simple.SimpleCommentGenerator">
+            <property name="javaFileEncoding" value="UTF-8"/>
+            &lt;!&ndash; 是否去除自动生成的注释 true：是 ： false:否 &ndash;&gt;
+            <property name="suppressAllComments" value="true"/>
+            &lt;!&ndash;            <property name="suppressDate" value="true"/>&ndash;&gt;
+        </commentGenerator>-->
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/user_db"
+                        userId="root"
+                        password="root123">
+            <!--<property name="useInformationSchema" value="true"/>-->
+        </jdbcConnection>
+
+        <!--      -->
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="org.example.oauth2.domain"
+                            targetProject="${generated.domain.dir}">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+            <property name="exampleTargetPackage" value="org.example.oauth2.domain"/>
+            <property name="exampleTargetProject" value="${generated.domain.dir}"/>
+            <property name="rootClass" value="org.example.oauth2.domain.BaseEntity"/>
+        </javaModelGenerator>
+
+        <!--&lt;!&ndash; 生成的映射文件包名和位置 &ndash;&gt;-->
+        <!--<sqlMapGenerator targetPackage="resources"-->
+        <!--targetProject="${generated.mapper.dir}src/main">-->
+        <!--<property name="enableSubPackages" value="true"/>-->
+        <!--</sqlMapGenerator>-->
+
+        <!-- 生成DAO的包名和位置 type="XMLMAPPER" -->
+        <javaClientGenerator type="ANNOTATEDMAPPER" targetPackage="org.example.oauth2.dao"
+                             targetProject="${generated.dao.dir}">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+
+        <table tableName="t_user">
+    <!--        <columnOverride column="id" property="id" javaType="java.lang.Boolean"></columnOverride>
+            <columnOverride column="user_name" property="user_name" javaType="java.lang.Boolean"></columnOverride>
+            <columnOverride column="password" property="password" javaType="java.time.Instant"></columnOverride>
+            <columnOverride column="full_name" property="fullName" javaType="java.time.Instant"></columnOverride>
+            <columnOverride column="mobile" property="mobile" javaType="java.time.Instant"></columnOverride>-->
+        </table>
+
+<!--        <table tableName="book" domainObjectName="Book"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>-->
+
+
+    </context>
+</generatorConfiguration>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
